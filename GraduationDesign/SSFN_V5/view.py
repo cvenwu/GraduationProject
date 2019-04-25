@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import (QWidget, QLabel, QTextEdit, QLineEdit, QMessageBox,
                              QGridLayout, QApplication, QPushButton)
 from PyQt5.QtGui import QFont
-from SSFN_V4_02 import SSF_V2 as ssf
+from SSFN_V5 import SSF_V2 as ssf
 
 
 class MyFrame(QWidget):

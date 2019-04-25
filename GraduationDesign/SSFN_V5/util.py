@@ -98,9 +98,3 @@ def get_word_weight(word, sen):
     """
     weight = float(get_word_times(word, sen)) / len(sen)
     return weight
-
-
-# print(2 / np.sqrt(8))
-# print(calc_cos_sim([1, 1, 2, 1, 1, 1, 0, 0, 0], [1, 1, 1, 0, 1, 1, 1, 1, 1]))
-# print(2 / np.sqrt(6))
-# print(calc_cos_sim([1, 0, 1], [1, 1, 1]))

@@ -31,5 +31,6 @@ print()
 for token, headline in zip(headline_tokens, news_headlines):
     print('-' * 50)
     print('Comparing to:', headline)
+    print(subject_token, token)
     distance = glove_model.wmdistance(subject_token, token)
     print('distance = %.4f' % distance)
