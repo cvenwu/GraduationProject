@@ -1,5 +1,5 @@
 import numpy as np
-from SSFN_V5 import util
+from SSFN_V4_02 import util
 import nltk
 Sen1_word = []  # 存储句子1的各个单词
 Sen2_word = []  # 存储句子2的各个单词

@@ -53,6 +53,15 @@ class MyFrame(QWidget):
         self.setWindowTitle('句子相似度计算')
         self.show()
 
+    def show_message_dialog(self, message):
+        """
+        定义一个方法用来展示对话框
+        :param message: 对话框上的消息
+        :return: None
+        """
+        self.message = QMessageBox.question(self, '消息', message,
+                                         QMessageBox.Yes, QMessageBox.No)
+
     def calc_simi_sen(self):
         """
         通过获取组件中两个输入获取两个句子，调用ssf中的方法计算相似度
@@ -61,6 +70,14 @@ class MyFrame(QWidget):
         """
         sen1 = self.sen1Edit.toPlainText().strip()
         sen2 = self.sen2Edit.toPlainText().strip()
+        if sen1 == '':
+            self.show_message_dialog("句子1不可以为空")
+            return
+        if sen2 == '':
+            self.show_message_dialog("句子2不可以为空")
+            return
+        print(sen1)
+        print(sen2)
 
         # 如果之前计算过，需要将之前所有计算过的列表全部清空
         if len(ssf.X) > 0:

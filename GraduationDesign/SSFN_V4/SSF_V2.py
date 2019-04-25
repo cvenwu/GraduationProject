@@ -1,5 +1,4 @@
 import numpy as np
-
 from SSFN_V4 import util
 
 
@@ -34,7 +33,8 @@ def init(Sen1, Sen2):
                     Sen2_word_vec_set
     :param Sen1: 句子1的字符串形式
     :param Sen2: 句子2的字符串形式
-    :return:
+    :return:        1 初始化成功，也就是所有单词的词向量全部找到
+                    0 初始化失败，部分单词的词向量没有找到
     """
     global Sen1_word
     global Sen2_word
@@ -43,7 +43,12 @@ def init(Sen1, Sen2):
     Sen1_word = Sen1.strip().split(' ')
     Sen2_word = Sen2.strip().split(' ')
     Sen1_word_vec_set = util.get_sen_vec_set(Sen1_word)
+    if Sen1_word_vec_set == 0:
+        return 0
     Sen2_word_vec_set = util.get_sen_vec_set(Sen2_word)
+    if Sen2_word_vec_set == 0:
+        return 0
+    return 1
 
 
 def calc_simi_element(Sa, Sb, Sa_vec, Sb_vec, u0=0.25):

@@ -21,7 +21,7 @@ def get_data_file_path():
     return file
 
 
-def get_wrod_vec(word):
+def get_word_vec(word):
     """
     计算词在glove文件中对应的词向量
     :param word: 要计算词向量的单词
@@ -55,7 +55,7 @@ def get_sen_vec_set(S):
     """
     vec_set = []
     for word in S:
-        vec_set.append(get_wrod_vec(word))
+        vec_set.append(get_word_vec(word))
     return vec_set
 
 

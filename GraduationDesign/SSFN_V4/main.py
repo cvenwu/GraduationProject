@@ -12,3 +12,9 @@ if __name__ == "__main__":
     # you are beautiful
     # you are a person
     sys.exit(app.exec_())
+
+    """
+    i can play some body that can body that body that body
+i can play that body that body th
+    
+    """

@@ -1,6 +1,6 @@
 import numpy as np
 
-from SSFN_V1 import util
+from SSFN_V2 import util
 
 
 Sen1_word = []  # 存储句子1的各个单词

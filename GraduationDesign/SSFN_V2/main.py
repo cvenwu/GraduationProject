@@ -1,4 +1,4 @@
-from SSFN_V1 import SSF_V1 as ssf
+from SSFN_V2 import SSF_V1 as ssf
 
 if __name__ == '__main__':
     Sen1 = input("请输入句子1：")

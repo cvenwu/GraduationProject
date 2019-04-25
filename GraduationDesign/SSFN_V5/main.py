@@ -1,5 +1,5 @@
 import sys
-from SSFN_V5 import view
+from SSFN_V4_02 import view
 
 if __name__ == "__main__":
     app = view.QApplication(sys.argv)
