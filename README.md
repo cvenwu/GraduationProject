@@ -3,8 +3,6 @@
 
 ![GitHub issues](https://img.shields.io/github/issues/sivanWu0222/GraduationProject.svg?color=s&label=issue&style=flat-square)![](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
-<br/>
-
 ## 项目使用到的库
 ![](https://img.shields.io/badge/Pytohn-3.7.0-green.svg?style=plastic&logo=python)
 ![](https://img.shields.io/badge/pandas-1.15.4-green.svg)
