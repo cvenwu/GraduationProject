@@ -1,352 +1,95 @@
 # GraduationProject
-毕业设计 基于CNN和词向量的句子相似性度量
+毕业设计：基于CNN和词向量的句子相似性度量
 
-##  环境
+![GitHub issues](https://img.shields.io/github/issues/sivanWu0222/GraduationProject.svg?color=s&label=issue&style=flat-square)
+<br/>
 
-1. 
+## 项目使用到的库
+![](https://img.shields.io/badge/Pytohn-3.7.0-green.svg?style=plastic&logo=python)
+![](https://img.shields.io/badge/pandas-1.15.4-green.svg)
+![](https://img.shields.io/badge/matplotlib-2.2.3-green.svg)
+![](https://img.shields.io/badge/numpy-1.15.4-green.svg)
+![](https://img.shields.io/badge/gensim-3.7.2-green.svg)
+![](https://img.shields.io/badge/nltk-3.3-green.svg)
+![](https://img.shields.io/badge/PyQt-5.9.2-green.svg)
+![](https://img.shields.io/badge/pyemd-0.5.1-green.svg)
+
+安装部分库遇到问题：[参考](http://www.sivan.tech/2019/04/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/)
+
+
+** 注意：因为要计算WMD距离所以需要安装依赖库pyemd **
+
+##  开发环境
+Anaconda + Pycharm
+
+## 项目说明
+> 按照老师要求复现论文(论文提出了一个新概念'相似元'，通过相似元来计算两个句子的相似度‘)，同时参考WMD以及论文中提到的WJ算法实现三个算法的比较
+
+毕业设计主要针对于句子相似度的计算，尤其是**长句**相似度，**使用GoogleNews预训练的模型**
+
+> GoogleNews-vectors-negative300.bin
+
+## TODO
+> 由于项目只实现了GoogleNews预训练模型中有的单词的句子相似度，没有拓展到中文
+1. 将相似度的计算拓展到中文
+2. 可以进行多个预训练模型的选择，而非GoogleNews
+3. 使用FAISS 框架优化相似向量的搜索
+
+
+## 数据来源
+[数据](http://ixa2.si.ehu.es/stswiki/index.php/Main_Page)
+
+存放于本项目DataSet下
+
+
+## 项目运行
+1. clone 项目到本地
+2. 配置config.json文件：model_path用于存放预训练模型存放的路径；dataset_path用于存放最后作实验评估的数据集存放的路径
+3. 从main.py开始运行，首先要点击初始化按钮加载预训练模型
+4. 在句子1和句子2处输入要计算相似度的句子
+5. 计算结果显示在 相似度，WJ，WMD距离三个地方
+6. 可以每次换一个句子，并点击计算
+7. 计算完成，点击退出
+
+![运行图](./项目运行图.png)
+
+## 结论验证
+![精度比较](./GraduationDesign/SSFN_V6_02/test.png)
 
 ## 参考资料
 
-1. [文本相似度比对](https://blog.csdn.net/diye2008/article/details/53762124?ref=myread)
 
-2. 老师给的链接：  [文本相似度比对](https://blog.csdn.net/Mr_carry/article/details/80996454)
-
-3. [link](https://blog.csdn.net/xiangz_csdn/article/details/54580053)
-
-4. 余弦距离计算公式：
-
-![余弦距离计算公式](D:/git%E4%BB%93%E5%BA%93/DiplomaProject/%E4%BD%99%E5%BC%A6%E8%B7%9D%E7%A6%BB.jpg)
+1. [WMD算法以及WJ算法参考](https://github.com/jsksxs360/Word2Vec)
+2. [Word2Vec中的sentence_similarity方法出处](http://xueshu.baidu.com/usercenter/paper/show?paperid=59d3626fc14491c996a983186cc6d155&site=xueshu_se&hitarticle=1)
+3. [理论依据](https://kexue.fm/archives/4677#%E5%8F%A5%E5%AD%90%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%BA%A6)
+4. [From Word Embeddings To Document Distances -- Matt J. Kusner等](http://xueshu.baidu.com/usercenter/paper/show?paperid=80e0aebd3cb631a88e2b8ae3ef61d61d&site=xueshu_se)
+5. ![余弦距离计算公式](D:/git%E4%BB%93%E5%BA%93/DiplomaProject/%E4%BD%99%E5%BC%A6%E8%B7%9D%E7%A6%BB.jpg)
 
 
-
+## 代码结构
+> 毕业设计源代码存放于GraduationDesign下，这里没有提到的代码文件均已过时，请以最新的代码为准
 <details>
 <summary>展开查看</summary>
 <pre><code>.
-├── Owner: maojian,haoguanwei
-├── app
-│   ├── Owner: maojian,haoguanwei,linmiao
-│   ├── admin
-│   │   ├── ep
-│   │   │   ├── merlin
-│   │   │   │   └── Owner: maojian,yuanmin,fengyifeng,xuneng
-│   │   ├── main
-│   │   │   ├── activity
-│   │   │   │   └── Owner: liweijia,zhapuyu,renwei
-│   │   │   ├── answer
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── search
-│   │   │   │   └── Owner: liweijia,zhapuyu,renwei,guanhuaxin
-│   │   │   ├── sms
-│   │   │   │   └── Owner: renwei,zhapuyu
-│   │   │   ├── spy
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── tag
-│   │   │   │   └── Owner: renwei,renyashun
-│   │   │   ├── tv
-│   │   │   │   └── Owner: liweijia,renwei
-│   │   │   ├── up
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── upload
-│   │   │   │   └── Owner: haoguanwei,zhapuyu
-│   │   │   ├── usersuit
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── videoup
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── videoup-task
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── vip
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   └── workflow
-│   │   │       └── Owner: haoguanwei,zhapuyu,zhuangzhewei,zhoushuguang
-│   │   └── openplatform
-│   │       └── sug
-│   │           └── Owner: changxuanran,xucheng
-│   ├── common
-│   │   └── openplatform
-│   │       └── Owner: liuzhan,huangshancheng
-│   ├── interface
-│   │   ├── live
-│   │   │   ├── Owner: liuzhen
-│   │   │   └── push-live
-│   │   │       └── Owner: kuangxibin
-│   │   └── main
-│   │       ├── account
-│   │       │   └── Owner: wanghuan01,zhoujiahui,zhaogangtao,chenjianrong,zhoujixiang
-│   │       ├── activity
-│   │       │   └── Owner: liweijia
-│   │       ├── answer
-│   │       │   └── Owner: zhaogangtao
-│   │       ├── app-channel
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-feed
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-interface
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-player
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-resource
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-show
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-tag
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-view
-│   │       │   └── Owner: peiyifei
-│   │       ├── app-wall
-│   │       │   └── Owner: peiyifei
-│   │       ├── article
-│   │       │   └── Owner: changxuanran,lijiadong,qiuliang
-│   │       ├── broadcast
-│   │       │   └── Owner: chenzhihui,caoguoliang,guhao
-│   │       ├── captcha
-│   │       │   └── Owner: chenzhihui
-│   │       ├── creative
-│   │       │   └── Owner: shencen,wangzhe01
-│   │       ├── credit
-│   │       │   └── Owner: zhaogangtao
-│   │       ├── dm
-│   │       │   └── Owner: liangkai,renwei
-│   │       ├── dm2
-│   │       │   └── Owner: liangkai,renwei
-│   │       ├── esports
-│   │       │   └── Owner: liweijia,zhapuyu
-│   │       ├── favorite
-│   │       │   └── Owner: chenzhihui,lujinhui
-│   │       ├── feedback
-│   │       │   └── Owner: peiyifei
-│   │       ├── growup
-│   │       │   └── Owner: gaopeng
-│   │       ├── history
-│   │       │   └── Owner: renwei,wangxu01
-│   │       ├── kvo
-│   │       │   └── Owner: liweijia,zhapuyu
-│   │       ├── laser
-│   │       │   └── Owner: haoguanwei,shencen
-│   │       ├── player
-│   │       │   └── Owner: liweijia,zhapuyu
-│   │       ├── playlist
-│   │       │   └── Owner: liweijia
-│   │       ├── push
-│   │       │   └── Owner: renwei,zhapuyu
-│   │       ├── push-archive
-│   │       │   └── Owner: zhapuyu,shencen,renwei,liweijia,wangzhe01
-│   │       ├── reply
-│   │       │   └── Owner: lujinhui,chenzhihui,caoguoliang
-│   │       ├── report-click
-│   │       │   └── Owner: zhangshengchao,chenzhihui,renyashun
-│   │       ├── shorturl
-│   │       │   └── Owner: peiyifei,zhapuyu
-│   │       ├── space
-│   │       │   └── Owner: liweijia,zhapuyu
-│   │       ├── spread
-│   │       │   └── Owner: zhapuyu,renwei
-│   │       ├── tag
-│   │       │   └── Owner: renwei,renyashun
-│   │       ├── tv
-│   │       │   └── Owner: renwei,liweijia
-│   │       ├── upload
-│   │       │   └── Owner: peiyifei,zhapuyu
-│   │       ├── videoup
-│   │       │   └── Owner: shencen,wangzhe01
-│   │       ├── web
-│   │       │   └── Owner: liweijia,zhapuyu
-│   │       ├── web-feed
-│   │       │   └── Owner: zhapuyu,liweijia,renwei
-│   │       ├── web-goblin
-│   │       │   └── Owner: liweijia,renwei
-│   │       └── web-show
-│   │           └── Owner: liweijia
-│   ├── job
-│   │   ├── live
-│   │   │   ├── Owner: liuzhen
-│   │   │   └── wallet
-│   │   │       └── Owner: lixiang,zhouzhichao
-│   │   ├── main
-│   │   │   ├── account-notify
-│   │   │   │   └── Owner: wanghuan01
-│   │   │   ├── account-summary
-│   │   │   │   └── Owner: zhoujiahui
-│   │   │   ├── history
-│   │   │   │   └── Owner: renwei,wangxu01
-│   │   │   ├── identify
-│   │   │   │   └── Owner: linmiao,wanghuan01
-│   │   │   ├── member
-│   │   │   │   └── Owner: chenjianrong,zhoujiahui,linmiao,zhoujixiang
-│   │   │   ├── passport
-│   │   │   │   └── Owner: wanghuan01
-│   │   │   ├── passport-auth
-│   │   │   │   └── Owner: wanghuan01
-│   │   │   ├── passport-encrypt
-│   │   │   ├── reply
-│   │   │   │   └── Owner: chenzhihui,lujinhui,caoguoliang
-│   │   │   ├── search
-│   │   │   │   └── Owner: liweijia,zhapuyu,renwei,guanhuaxin
-│   │   │   ├── sms
-│   │   │   │   └── Owner: renwei,zhapuyu
-│   │   │   ├── spy
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   └── workflow
-│   │   │       └── Owner: haoguanwei,zhapuyu
-│   │   └── openplatform
-│   │       └── open-market
-│   │           └── Owner: changxuanran,liuyan02,qiuliang
-│   ├── service
-│   │   ├── ep
-│   │   │   └── saga-agent
-│   │   │       └── Owner: muyang,tangyongqiang,fangrongchang
-│   │   ├── live
-│   │   │   ├── Owner: liuzhen
-│   │   │   ├── userexp
-│   │   │   │   └── Owner: kuangxibing
-│   │   │   └── wallet
-│   │   │       └── Owner: lixiang,zhouzhichao
-│   │   ├── main
-│   │   │   ├── account
-│   │   │   │   └── Owner: wanghuan01,zhoujiahui
-│   │   │   ├── antispam
-│   │   │   │   └── Owner: chenzhihui,lujinhui
-│   │   │   ├── archive
-│   │   │   │   └── Owner: haoguanwei,peiyifei
-│   │   │   ├── assist
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── block
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── favorite
-│   │   │   │   └── Owner: chenzhihui,lujinhui
-│   │   │   ├── feed
-│   │   │   │   └── Owner: renwei,zhapuyu
-│   │   │   ├── figure
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── filter
-│   │   │   │   └── Owner: zhaogangtao,muyang
-│   │   │   ├── identify
-│   │   │   │   └── Owner: wanghuan01
-│   │   │   ├── identify-game
-│   │   │   │   └── Owner: wanghuan01
-│   │   │   ├── location
-│   │   │   │   └── Owner: peiyifei,haoguanwei
-│   │   │   ├── member
-│   │   │   │   └── Owner: zhaogangtao,wanghuan01,zhoujiahui,chenjianrong,zhoujixiang
-│   │   │   ├── msm
-│   │   │   │   └── Owner: maojian
-│   │   │   ├── notify
-│   │   │   │   └── Owner: haoguanwei,lintanghui
-│   │   │   ├── passport
-│   │   │   │   └── Owner: wanghuan01
-│   │   │   ├── search
-│   │   │   │   └── Owner: liweijia,zhapuyu,renwei,guanhuaxin
-│   │   │   ├── secure
-│   │   │   │   └── Owner: zhaogangtao,lintanghui
-│   │   │   ├── seq-server
-│   │   │   │   └── Owner: peiyifei
-│   │   │   ├── share
-│   │   │   │   └── Owner: peiyifei,haoguanwei
-│   │   │   ├── sms
-│   │   │   │   └── Owner: renwei,zhapuyu
-│   │   │   ├── spy
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── tag
-│   │   │   │   └── Owner: renwei,renyashun
-│   │   │   ├── thumbup
-│   │   │   │   └── Owner: liweijia,zhapuyu,renwei
-│   │   │   ├── up
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── upcredit
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── usersuit
-│   │   │   │   └── Owner: zhaogangtao
-│   │   │   ├── videoup
-│   │   │   │   └── Owner: shencen,wangzhe01
-│   │   │   ├── vip
-│   │   │   │   └── Owner: lintanghui,zhaogangtao
-│   │   │   └── workflow
-│   │   │       └── Owner: haoguanwei,zhapuyu,zhoushuguang
-│   │   └── openplatform
-│   │       ├── abtest
-│   │       │   └── Owner: lijiadong,qiuliang
-│   │       ├── anti-fraud
-│   │       │   └── Owner: wanglitao,wangminda,jiayanxiang
-│   │       ├── ticket-item
-│   │       │   └── Owner: yangyucheng
-│   │       └── ticket-sales
-│   │           └── Owner: liuzhan,yangyucheng
-│   └── tool
-│       ├── cache
-│       │   └── Owner: zhapuyu
-│       ├── ci
-│       │   └── Owner: tangyongqiang
-│       ├── creater
-│       │   └── Owner: chenjianrong
-│       ├── gdoc
-│       │   └── Owner: lintanghui
-│       ├── saga
-│       │   └── Owner: muyang,tangyongqiang
-│       └── warden
-│           └── Owner: weicheng
-└── library
-    ├── cache
-    │   ├── memcache
-    │   │   └── Owner: maojian
-    │   └── redis
-    │       └── Owner: maojian
-    ├── container
-    │   └── pool
-    │       └── Owner: zhapuyu
-    ├── database
-    │   ├── elastic
-    │   │   └── Owner: haoguanwei,renwei,zhapuyu
-    │   └── sql
-    │       └── Owner: 
-    ├── ecode
-    │   ├── Owner: all
-    │   └── tip
-    │       └── Owner: all
-    ├── exp
-    │   └── feature
-    │       └── Owner: zhoujiahui
-    ├── log
-    │   └── Owner: maojian
-    ├── naming
-    │   └── discovery
-    │
-    │   │       │   │   └── Owner: 
-    │   │       │   ├── rate
-    │   │       │   │   └── Owner: 
-    │   │       │   ├── supervisor
-    │   │       │   │   └── Owner: 
-    │   │       │   ├── tag
-    │   │       │   │   └── Owner: maojian
-    │   │       │   └── verify
-    │   │       │       └── Owner: maojian,zhoujiahui
-    │   │       └── render
-    │   │           └── Owner: 
-    │   ├── metadata
-    │   │   └── Owner: 
-    │   ├── netutil
-    │   │   └── breaker
-    │   │       └── Owner: 
-    │   ├── rpc
-    │   │   └── warden
-    │   │       ├── Owner: maojian,caoguoliang
-    │   │       ├── balancer
-    │   │       │   └── wrr
-    │   │       │       └── Owner: caoguoliang
-    │   │       └── resolver
-    │   │           └── Owner: caoguoliang
-    │   └── trace
-    │       └── Owner: maojian
-    ├── rate
-    │   └── limit
-    │       └── bench
-    │           └── stress
-    │               └── Owner: lintanghui
-    ├── stat
-    │   └── sys
-    │       └── cpu
-    │           └── Owner: caoguoliang
-    └── sync
-        └── errgroup
-            └── Owner: 
-</code></pre>
+├── GraduationDesign
+│   ├── main.py	项目运行点
+│   ├── SSFN_V6_02		第6版：实现功能的垂直分割，同时实现三个算法的实验评估
+│   │   ├── Methods
+│   │   │   ├── SSFN
+│   │   │   │──── └── SSF_V3.py 	复现论文中的SSF函数
+│   │   │   ├── WJ
+│   │   │   │──── └── wj_similarity.py	论文中的比对方法：计算两个句子的余弦相似度
+│   │   │   ├── WMD
+│   │   │   │──── └── wmd_distance.py	 论文中的比对方法2：计算两个句子的WMD距离
+│   │   │   ├── Word2Vec.py			加载并使用GoogleNews预训练的模型进行计算
+│   │   ├── util
+│   │   │   │──── └── util.py	 工具模块，实现词语权重计算，模型的加载等
+│   │   ├── view
+│   │   │   │──── └── view_data.py	 使用PyQt5编写界面
+│   │   ├── datahelper
+│   │   │   │──── └── data_process.py	 对实验评估数据集的处理
+│   │   ├── experiment_show
+│   │   │   │──── └── result_img.py	 三种实验方法比对并在本地生成最后的比对结果图</code></pre>
 </details>
 
+如果你觉得项目可以，不放给个star，是对我这段时间以来莫大的鼓舞，如果你对项目有疑问可以issue
