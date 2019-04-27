@@ -2,6 +2,9 @@
 毕业设计：基于CNN和词向量的句子相似性度量
 
 ![GitHub issues](https://img.shields.io/github/issues/sivanWu0222/GraduationProject.svg?color=s&label=issue&style=flat-square)
+
+![](https://img.shields.io/badge/build-passing-brightgreen.svg)
+
 <br/>
 
 ## 项目使用到的库
@@ -16,8 +19,7 @@
 
 安装部分库遇到问题：[参考](http://www.sivan.tech/2019/04/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/)
 
-
-** 注意：因为要计算WMD距离所以需要安装依赖库pyemd **
+**注意：因为要计算WMD距离所以需要安装依赖库pyemd**
 
 ##  开发环境
 Anaconda + Pycharm
@@ -31,9 +33,11 @@ Anaconda + Pycharm
 
 ## TODO
 > 由于项目只实现了GoogleNews预训练模型中有的单词的句子相似度，没有拓展到中文
-1. 将相似度的计算拓展到中文
-2. 可以进行多个预训练模型的选择，而非GoogleNews
-3. 使用FAISS 框架优化相似向量的搜索
+- [ ] 将相似度的计算拓展到中文
+
+- [ ] 可以进行多个预训练模型的选择，而非GoogleNews
+
+- [ ] 使用FAISS 框架优化相似向量的搜索
 
 
 ## 数据来源
