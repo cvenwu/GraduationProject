@@ -63,7 +63,7 @@ Anaconda + Pycharm
 2. [Word2Vec中的sentence_similarity方法出处](http://xueshu.baidu.com/usercenter/paper/show?paperid=59d3626fc14491c996a983186cc6d155&site=xueshu_se&hitarticle=1)
 3. [理论依据](https://kexue.fm/archives/4677#%E5%8F%A5%E5%AD%90%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%BA%A6)
 4. [From Word Embeddings To Document Distances -- Matt J. Kusner等](http://xueshu.baidu.com/usercenter/paper/show?paperid=80e0aebd3cb631a88e2b8ae3ef61d61d&site=xueshu_se)
-5. ![余弦距离计算公式](D:/git%E4%BB%93%E5%BA%93/DiplomaProject/%E4%BD%99%E5%BC%A6%E8%B7%9D%E7%A6%BB.jpg)
+5. ![余弦距离计算公式](./余弦距离.jpg)
 
 
 ## 代码结构
