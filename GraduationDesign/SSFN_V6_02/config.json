@@ -1,0 +1,4 @@
+{
+  "model_path": "D:\\GoogleNews-vectors-negative300.bin",
+  "data_set_path": "D:\\DataSet\\Stsbenchmark\\stsbenchmark\\sts-dev.csv"
+}
