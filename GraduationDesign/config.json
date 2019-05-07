@@ -1,4 +1,4 @@
 {
-  "path": "D:/git仓库/glove.6B/",
-  "name": "glove.6B.200d.txt"
+  "model_path": "D:\\GoogleNews-vectors-negative300.bin",
+  "data_set_path": "D:\\DataSet\\Stsbenchmark\\stsbenchmark\\sts-dev.csv"
 }
