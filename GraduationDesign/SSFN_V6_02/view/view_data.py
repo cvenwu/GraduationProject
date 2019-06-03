@@ -94,8 +94,7 @@ class MyFrame(QWidget):
         """
         if len(ssf.X) > 0:
             ssf.clear_list()
-        print(type(self.model))
-        print(self.model)
+
         if self.model is None:
             self.show_message_dialog("请先初始化模型")
             return
@@ -112,15 +111,12 @@ class MyFrame(QWidget):
         print("句子1和2处理完毕")
 
         wj = wj_similarity.wj_similarity(self.model, sen1, sen2)
-        print("1")
         self.wjSimiEdit.setText(str(wj))
         print("wj计算完成")
         wmd = wmd_distance.sentence_wmd_distance(self.model, sen1, sen2)
-        print("2")
         self.wmdDistanceEdit.setText(str(wmd))
         print("wmd计算完成")
         ssf_value = ssf.calc_sen_simi(self.model, sen1, sen2)
-        print("3")
         self.simiEdit.setText(str(ssf_value))
         print("SSF计算完成")
 
@@ -136,9 +132,7 @@ class MyFrame(QWidget):
         """
         sender = self.sender()
         if sender.text() == '计算':
-            print("1")
             self.calc_result()
-            print("2")
         elif sender.text() == '初始化':
             # 加载模型
             print("开始加载模型。。。")

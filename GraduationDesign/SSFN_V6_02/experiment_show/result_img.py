@@ -32,7 +32,6 @@ def experiment(word2vec):
         WMD_SIMI.append(wmd_simi)
         ssf_value = ssf.calc_sen_simi(word2vec, sen1, sen2)
         SSF.append(ssf_value)
-        print(i)
     print("experiment执行完成")
     plot_img()
 

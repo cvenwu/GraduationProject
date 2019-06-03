@@ -12,7 +12,6 @@ class Word2Vec():
             txt: 文本文件
         return: 无
         """
-        print("456")
         if kind != 'bin':
             kind = False
         else:

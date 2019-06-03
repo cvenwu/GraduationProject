@@ -123,12 +123,9 @@ def calc_simi_element(model, Sa, Sb, Sa_vec, Sb_vec, u0=0.25):
     global maxsim
     for i in range(len(Sa)):
         maxsim = 0
-        print("i : ", i)
         for j in range(len(Sb)):
-            print("j : ", j)
-            print(Sa[i], Sb[j])
             tmp_sim = model.word_similarity(Sa[i], Sb[j])
-            print(Sa[i], Sb[j])
+            print("%s 与 %s的相似度为 %s" % (Sa[i], Sb[j], str(tmp_sim)))
             if tmp_sim > maxsim:
                 maxsim = tmp_sim
                 tmp_word_b = Sb[j]
@@ -174,10 +171,6 @@ def init_set():
     p = len(S_sen1_word)
     q = len(NS_sen2_word)
     N = m + n
-    print("N")
-    print(N)
-    print(m)
-    print(n)
     for i in range(N):
         # 初始化集合X
         if i < m:
@@ -193,7 +186,6 @@ def init_set():
         else:
             Y.append(util.get_word_weight(NS_sen2_word[i - N + q], Sen2_word))
     print("初始化X和Y完成")
-    print(S_sen1_word)
 
 
 def calc_sen_simi(model, Sen1, Sen2):
@@ -215,20 +207,17 @@ def calc_sen_simi(model, Sen1, Sen2):
     global NS_sen1_vec_set
     global NS_sen1_word
     global NS_sen2_word
-    print("1")
     init(model, Sen1, Sen2)
-    print("2")
     calc_simi_element(model, Sen1, Sen2, Sen1_word_vec_set, Sen2_word_vec_set)
-    print("3")
     init_set()
     print("开始计算句子相似度")
     p = len(S_sen1_word)
     m = len(Sen1)
 
     print("开始计算分子")
-    print(X)
-    print(Y)
-    print(S_sen1_word)
+    print("X是 ", X)
+    print("Y是 ", Y)
+    print("句子1的相似元是 ", S_sen1_word)
     # 分子
     tmp_list = [X[i]*Y[i] for i in range(len(S_sen1_word))]
     tmp_array = np.sum(np.array(tmp_list))

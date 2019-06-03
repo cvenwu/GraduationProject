@@ -9,11 +9,7 @@ def model_path():
     根据config.json文件获取预训练模型存储的路径
     :return: 模型对应的路径
     """
-    print("000")
-    print(os.getcwd())
-    print(sys.argv[0])
     with open("D:\git仓库\GraduationProject\GraduationDesign\config.json", 'r') as f:
-        print("456")
         return json.load(f)['model_path']
 
 
@@ -23,7 +19,7 @@ def data_path():
     :return: 数据集对应的路径
     """
     with open("D:\git仓库\GraduationProject\GraduationDesign\config.json", 'r') as f:
-        return json.load(f)['dataset_path']
+        return json.load(f)['data_set_path']
 
 
 def load_model():
@@ -31,7 +27,6 @@ def load_model():
     加载已经训练好的模型
     :return:  加载文件后得到的word2vec模型
     """
-    print("789")
     glob_model = Word2Vec.Word2Vec(model_path())
     return glob_model
 
