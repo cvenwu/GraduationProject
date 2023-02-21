@@ -1,5 +1,5 @@
 # GraduationProject
-毕业设计：基于CNN和词向量的句子相似性度量
+毕业设计：基于CNN和词向量的句子相似性度量...
 
 ![GitHub issues](https://img.shields.io/github/issues/sivanWu0222/GraduationProject.svg?color=s&label=issue&style=flat-square)![](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
